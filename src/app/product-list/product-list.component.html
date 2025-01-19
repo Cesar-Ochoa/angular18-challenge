@@ -1,18 +1,22 @@
 <div>
   <h2>Product List</h2>
 
-  <button>Sort by Price</button>
-  <button">Sort by Name</button>
+  <button (click)="sortByPrice()">Sort by Price</button>
+  <button (click)="sortByName()">Sort by Name</button>
 
   <p>Sorted by: <!-- show the sorted by --></p>
 
-  <ul>
-    <!-- Loop through the products array -->
-    <li >
-      <strong>Title</strong><br>
-      Price<br>
-      Category<br>
-      <img alt="product-image" width="100">
-    </li>
-  </ul>
+  <div *ngIf="products.length > 0;">
+    <div *ngFor="let product of products"> 
+      <ul>
+        <!-- Loop through the products array -->
+        <li >
+          <strong>{{product.title}}</strong><br>
+          Price ${{product.price}}<br>
+          Category ${{product.category}}<br>
+          <img alt="product-image" width="100">
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
